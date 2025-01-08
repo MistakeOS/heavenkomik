@@ -1,0 +1,30 @@
+[
+    {
+        "id":"1",
+        "nama" : "ferdiansyah",
+        "as" : "front end",
+        "email" : "ferdikings03@gmail.com",
+        "foto" : "2.jpg"
+    },
+    {
+        "id": "2",
+        "nama": "M.iqbal",
+        "as": "back end",
+        "email": "lisianthus@gmail.com",
+        "foto": "iqbal.jpg"
+    },
+    {
+        "id": "3",
+        "nama": "stanley",
+        "as": "comicus",
+        "email": "stanley@gmail.com",
+        "foto": "10.jpg"
+    },
+    {
+        "id": "4",
+        "nama": "odyu",
+        "as": "comicus",
+        "email": "thelyfe@gmail.com",
+        "foto": "11.jpg"
+    }
+]

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>contact us </title>
+	<meta charset="UTF-8">
+	<meta name="description" content="IF Webtoons">
+	<meta name="keywords" content="Webtoons, html">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="img/logo3.webp" rel="shortcut icon"/>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,500,500i,700,700i" rel="stylesheet">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/font-awesome.min.css"/>
+	<link rel="stylesheet" href="css/owl.carousel.css"/>
+	<link rel="stylesheet" href="css/style.css"/>
+	<link rel="stylesheet" href="css/animate.css"/>
+
+
+
+</head>
+<body ng-app="validationApp" ng-controller="mainController">
+	<header class="header-section">
+		<div class="container">
+			<!-- logo -->
+			<a class="site-logo" href="index.html">
+				<img src="img/logo2.webp" alt="">
+			</a>
+			<div class="user-panel">
+				<a href="login.html">login</a>
+			</div>
+			<!-- responsive -->
+			<div class="nav-switch">
+				<i class="fa fa-bars"></i>
+			</div>
+			<!-- site menu -->
+			<nav class="main-menu">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+
+					<li><a href="#">Comic</a>
+                            <ul class="dropdown">
+                                <li><a href="login.html">premium comic</a></li>
+                                <li><a href="comic.html">free comic</a></li>
+                            </ul>
+                        </li>
+					<li><a href="contact_us.html">Contact</a></li>
+					<li><a href="review.html">Review</a></li>
+					<li><a href="about_us.html">About us </a></li>
+					<li ><a class="hidden-md"href="#">login</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<!-- Header section end -->
+
+
+	<!-- Latest news section -->
+	<div class="latest-news-section">
+		<div class="ln-title">featured Comic</div>
+		<div class="news-ticker">
+			<div class="news-ticker-contant">
+				<div class="nt-item"><span class="new">comedy</span>kamvret lyfe SGT risiasi </div>
+				<div class="nt-item"><span class="strategy">adventure</span>garudayana by mamang racing </div>
+				<div class="nt-item"><span class="racing">romantic</span>spooky sweatheart by ibeng turbo </div>
+		</div>
+		</div>
+	</div>
+	<!-- Latest news section end -->
+	<section class="page-info-section set-bg" data-setbg="img/comic/one.jpg">
+		<div class="pi-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xl-5 col-lg-6 text-white">
+						<h2>Contact us</h2>
+						<p>Contact us so you can join us as a comicus or give us feedback so we can improve this web </p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Page info section -->
+
+
+	<!-- Page section -->
+	<section class="page-section spad contact-page">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-4 mb-5 mb-lg-0">
+					<h4 class="comment-title">Contact us</h4>
+					<p>Fill out the form below to join us as comicus or give us a feedback to improve this web.</p>
+					<div class="row">
+						<div class="col-md-9">
+							<ul class="contact-info-list">
+								<li><div class="cf-left">Address</div><div class="cf-right">lorem ipsum </div></li>
+								<li><div class="cf-left">Phone</div><div class="cf-right">+62 82-1997-3028</div></li>
+								<li><div class="cf-left">E-mail</div><div class="cf-right">ferdikings03@gmail.com<br/>M.iqbal@gmail.com</div></li>
+							</ul>
+						</div>
+					</div>
+					<div class="social-links">
+						<a href="#"><i class="fa fa-pinterest"></i></a>
+						<a href="#"><i class="fa fa-facebook"></i></a>
+						<a href="#"><i class="fa fa-twitter"></i></a>
+						<a href="#"><i class="fa fa-dribbble"></i></a>
+						<a href="#"><i class="fa fa-behance"></i></a>
+						<a href="#"><i class="fa fa-linkedin"></i></a>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<div class="contact-form-warp">
+						<h4 class="comment-title">Leave a Reply</h4>
+						<form  id="contactForm" name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate="novalidate" >
+							<div class="row">
+							  <div class="col-md-12 form-group">
+							  <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+								<label for="name">Name</label>
+								<input type="text" id="name" name="name" class="form-control" ng-model="name" required>
+								<p style="color:red;" ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Please input your name</p>
+							  </div>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="col-md-12 form-group">
+							  <div class="form-group" ng-class="{ 'has-error' : userForm.number.$invalid && !userForm.number.$pristine }">
+								<label for="phone">Phone</label>
+								<input type="tel" id="phone" name="number" class="form-control" ng-model="number"  ng-Model pattern="[0-9]+" required>
+								<p class="mb-1" style="color:red;" ng-show="userForm.number.$invalid && !userForm.number.$pristine" class="help-block">Please enter your number </p>
+								<p  style="color:red;"ng-show="userForm.number.$error.pattern" class="help-block">Please enter number only</p>
+							  </div>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="col-md-12 form-group">
+							  <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+								<label for="email">Email</label>
+								<input type="email" id="email" name="email" class="form-control" ng-model="email" required >
+								<p style="color:red;" ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Please enter a valid email</p>
+							  </div>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="col-md-12 form-group">
+							  <div class="form-group" ng-class="{ 'has-error' : userForm.message.$invalid && !userForm.message.$pristine }">
+								<label for="message">Write Message</label>
+								<textarea name="message" id="message" name="message" class="form-control " cols="30" rows="8" ng-model="message" required></textarea>
+								<p style="color:red;" ng-show="userForm.message.$invalid && !userForm.message.$pristine" class="help-block">Please write a message</p>
+							  </div>
+							  </div>
+							</div>
+							<div class="row">
+							  <div class="col-md-6 form-group">
+								<input type="submit" value="Send Message" class="btn btn-primary" id="send" name="send">
+							  </div>
+							</div>
+						  </form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+	<section class="footer-top-section">
+	<div class="container">
+		<div class="row"></div>
+		<div class="footer-top-bg">
+			<img src="img/footer-top-bg.png" alt="">
+		</div>
+		<div class="row">
+			<div class="col-lg-4">
+				<div class="footer-logo text-white">
+					<a class="site-logo" href="index.html">
+						<img src="img/logo2_resized.png" alt="">
+					</a><br/>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="footer-widget">
+					<h4 class="fw-title">Top Comments</h4>
+					<div class="top-comment">
+						<div class="tc-item">
+							<div class="tc-thumb set-bg" data-setbg="img/authors/1.jpg"></div>
+							<div class="tc-content">
+								<p><a href="review.html">risiasi</a><span>on Kampung Kelor </span>  such a funny comic with +62 people</p>
+								<div class="tc-date">sept 3, 2019</div>
+							</div>
+						</div>
+						<div class="tc-item">
+							<div class="tc-thumb set-bg" data-setbg="img/authors/2.jpg"></div>
+							<div class="tc-content">
+								<p><a href="review.html">M Iqbal</a> <span>on Soul Of Neko</span>  LOL </p>
+								<div class="tc-date">June 21, 2019</div>
+							</div>
+						</div>
+						<div class="tc-item">
+							<div class="tc-thumb set-bg" data-setbg="img/authors/3.jpg"></div>
+							<div class="tc-content">
+								<p><a href="#">M Dhani</a> <span>on spooky sweath heart</span>  beutiful romantic stories between hanas and lia</p>
+								<div class="tc-date">July 23, 2019</div>
+							</div>
+						</div>
+						<div class="tc-item">
+							<div class="tc-thumb set-bg" data-setbg="img/authors/4.jpg"></div>
+							<div class="tc-content">
+								<p><a href="#">ferdiansyah</a> <span>on soul of neko</span>  such a </p>
+								<div class="tc-date">August 11, 2019</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+	<footer class="footer-section">
+		<div class="container">
+			<ul class="footer-menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="comic.html">comic</a></li>
+				<li><a href="contact.html">contact</a></li>
+				<li><a href="review.html">review</a></li>
+				<li><a href="About_us.html">about us</a></li>
+			</ul>
+        <p class="copyright">
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | follow us on <a href="https://instagram.com" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a><a href="https://youtube.com" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        </p>
+		</div>
+	</footer>
+
+	<script>
+		var validationApp = angular.module('validationApp', []);
+		// create angular controller
+		validationApp.controller('mainController', function ($scope) {
+		// function to submit the form after all validation has occurred
+		$scope.submitForm = function (isValid) {
+		// check to make sure the form is completely valid
+		if (isValid) {
+		alert('Thank you ');
+		window.location.reload();
+		}else
+		alert('Please Fill all the fields');
+		};
+		});
+	</script>
+	<script src="js/angular.js"></script>
+	<script src="assets/js/angular-validate.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
+	<script src="js/jquery.marquee.min.js"></script>
+	<script src="js/main.js"></script>
+	
+    </body>
+</html>
