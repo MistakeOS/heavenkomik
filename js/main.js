@@ -1,103 +1,97 @@
 
-(function ($) {
-    "use strict";
+
+'use strict';
 
 
-    /*==================================================================
-    [ Focus input ]*/
-    $('.input100').each(function(){
-        $(this).on('blur', function(){
-            if($(this).val().trim() != "") {
-                $(this).addClass('has-val');
-            }
-            else {
-                $(this).removeClass('has-val');
-            }
-        })    
-    })
-  
-  
-    /*==================================================================
-    [ Validate ]*/
-    var input = $('.validate-input .input100');
+$(window).on('load', function() {
+	/*------------------
+		Preloder
+	--------------------*/
+	$(".loader").fadeOut(); 
+	$("#preloder").delay(400).fadeOut("slow");
 
-    $('.validate-form').on('submit',function(){
-        var check = true;
+});
 
-        for(var i=0; i<input.length; i++) {
-            if(validate(input[i]) == false){
-                showValidate(input[i]);
-                check=false;
-            }
-        }
+(function($) {
 
-        return check;
-    });
+	/*------------------
+		Navigation
+	--------------------*/
+	$('.nav-switch').on('click', function(event) {
+		$('.main-menu').slideToggle(400);
+		event.preventDefault();
+	});
 
 
-    $('.validate-form .input100').each(function(){
-        $(this).focus(function(){
-           hideValidate(this);
-        });
-    });
-    $(document).ready(function(){
-        $("#login").click(function()
-    {
-    var uid = $("#uid").val();
-    var  password = $("#password").val();
-if(   uid =='' ||  password =='' )
-{
-$('input[type="text"],input[type="password"]').css("border","2px solid blue");
-$('input[type="text"],input[type="password"]').css("box-shadow","0 0 3px blue");
-alert("please   fill  all   fields..!!!!"); 
-}
-else
-{
-    if (password.length < 8) {
-       $('input[type="password"]').css("border","2px solid blue");
-       $('input[type="password"]').css("box-sahdow","0 0 3px blue");                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-    alert('password must be of minimum 8 characters');
-        $('#password').val('');
-} 
-else
-{
-	if (window.confirm('welcome back '+uid)) 
-{
-window.location.href="aft_login/pre_comic.jsp";
-}
-}
-}    });    });
+	/*------------------
+		Background Set
+	--------------------*/
+	$('.set-bg').each(function() {
+		var bg = $(this).data('setbg');
+		$(this).css('background-image', 'url(' + bg + ')');
+	});
 
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
 
-        $(thisAlert).addClass('alert-validate');
+	/*------------------
+		Hero Slider
+	--------------------*/
+	$('.hero-slider').owlCarousel({
+		loop: true,
+		nav: false,
+		dots: true,
+		mouseDrag: false,
+		animateOut: 'fadeOut',
+    	animateIn: 'fadeIn',
+		items: 1,
+		autoplay: true
+	});
+	var dot = $('.hero-slider .owl-dot');
+	dot.each(function() {
+		var index = $(this).index() + 1;
+		if(index < 10){
+			$(this).html('0').append(index);
+			$(this).append('<span>.</span>');
+		}else{
+			$(this).html(index);
+			$(this).append('<span>.</span>');
+		}
+	});
+
+
+	/*------------------
+		News Ticker
+	--------------------*/
+	$('.news-ticker').marquee({
+	    duration: 10000,
+	    //gap in pixels between the tickers
+	    //gap: 200,
+	    delayBeforeStart: 0,
+	    direction: 'left',
+	    duplicated: true
+	});
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(mm == 12) {
+        mm = '01';
+        yyyy = yyyy + 1;
+    } else {
+        mm = parseInt(mm) + 1;
+        mm = String(mm).padStart(2, '0');
     }
-
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
-
-        $(thisAlert).removeClass('alert-validate');
-    }
+    var timerdate = mm + '/' + dd + '/' + yyyy;
+    // For demo preview end
     
-    /*==================================================================
-    [ Show pass ]*/
-    var showPass = 0;
-    $('.btn-show-pass').on('click', function(){
-        if(showPass == 0) {
-            $(this).next('input').attr('type','text');
-            $(this).find('i').removeClass('zmdi-eye');
-            $(this).find('i').addClass('zmdi-eye-off');
-            showPass = 1;
-        }
-        else {
-            $(this).next('input').attr('type','password');
-            $(this).find('i').addClass('zmdi-eye');
-            $(this).find('i').removeClass('zmdi-eye-off');
-            showPass = 0;
-        }
-        
-    });
 
+    // Use this for real timer date
+    /*  var timerdate = "2020/01/01"; */
+
+	$("#countdown").countdown(timerdate, function(event) {
+        $(this).html(event.strftime("<div class='cd-item'><span>%D</span> <p>Days</p> </div>" + "<div class='cd-item'><span>%H</span> <p>Hrs</p> </div>" + "<div class='cd-item'><span>%M</span> <p>Mins</p> </div>" + "<div class='cd-item'><span>%S</span> <p>Secs</p> </div>"));
+    });
 
 })(jQuery);
+
